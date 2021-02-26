@@ -1,6 +1,8 @@
 package com.qa.ims.persistence.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +10,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-
+import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
+
+import nl.jqno.equalsverifier.EqualsVerifier;
 
 //public class OrderDAOTest {
 //	private final OrderDAO DAO = new OrderDAO();
@@ -59,3 +63,30 @@ import com.qa.ims.utils.DBUtils;
 	
 
 //}
+
+public class OrderDAOTest {
+private static OrderDAO testOrderDAO;
+
+
+	
+
+
+@Test
+public void OrderDAOConstructor1() {
+	
+	testOrderDAO = new OrderDAO();
+	assertNotNull(testOrderDAO);
+	assertTrue(testOrderDAO instanceof OrderDAO);
+		
+	}
+
+@Test
+public void OrderDAOConstructor2() {
+	
+	testOrderDAO = new OrderDAO(); 
+	assertNotNull(testOrderDAO);
+	
+		
+	}
+
+}

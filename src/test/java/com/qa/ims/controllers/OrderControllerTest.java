@@ -1,6 +1,8 @@
 package com.qa.ims.controllers;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.dao.OrderDAO;
+import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
@@ -66,7 +69,7 @@ public class OrderControllerTest {
 //		assertEquals(updated, this.controller.update());
 
 //		Mockito.verify(this.utils, Mockito.times(1)).getLong();
-//		Mockito.verify(this.utils, Mockito.times(2)).getLong();
+//		Mockito.verify(this.utils, Mockito.times(1)).getLong();
 //		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 //	}
 	
@@ -83,6 +86,27 @@ public class OrderControllerTest {
 		Mockito.verify(utils, Mockito.times(1)).getLong();
 		Mockito.verify(dao, Mockito.times(1)).delete(ID);
 	}
+	
+	private static OrderController testOrderController;
+	
+	@Test
+	public void OrderControllerConstructor1() {
+		
+		testOrderController = new OrderController(dao, utils);
+		assertNotNull(testOrderController);
+		assertTrue(testOrderController instanceof OrderController);
+			
+		}
+
+	@Test
+	public void OrderControllerConstructor2() {
+		
+		testOrderController = new OrderController(dao, utils); 
+		assertNotNull(testOrderController);
+		
+			
+		}
+
 
 	
 	
